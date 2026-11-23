@@ -338,7 +338,7 @@ AIで副収入を得るための方法を、
             <div class="prompt-head"><b>マネキンの指示文</b><button class="copy" type="button" data-copy="prompt2">コピーする</button></div>
             <details class="prompt-details" open>
               <summary>指示文の内容を見る</summary>
-              <pre id="prompt2">この服を、無地の白背景でマネキンに着せてください。丈は「〇〇」までの長さです。丈・袖の長さ・シルエット・色・柄・ロゴ・傷や汚れは、元の写真のまま変えないでください。</pre>
+              <pre id="prompt2">この服を、無地の白背景でマネキンに着せてください。丈は「〇〇」までの長さです。丈・袖の長さ・シルエット・デザイン・色・柄・素材感・ロゴ・傷や汚れは、元の写真のまま変えないでください。</pre>
             </details>
           </div>
 
@@ -583,7 +583,7 @@ AIを使った副業で、たった4か月で、介護の仕事の手取りと�
     function fillPrompts(){
       var brand1=val('in-brand1'),mag=val('in-mag')||'〇〇';
       document.getElementById('prompt1').textContent='この商品写真を使って、雑誌「'+mag+'」の表紙のような画像にしてください。'+(brand1?'ブランド名「'+brand1+'」を小さく入れてください。':'')+'商品の色・柄・形・ロゴ・傷や汚れは変えず、正方形で仕上げてください。';
-      document.getElementById('prompt2').textContent='この服を、無地の白背景でマネキンに着せてください。丈は「'+(val('in-length')||'〇〇')+'」までの長さです。丈・袖の長さ・シルエット・色・柄・ロゴ・傷や汚れは、元の写真のまま変えないでください。';
+      document.getElementById('prompt2').textContent='この服を、無地の白背景でマネキンに着せてください。丈は「'+(val('in-length')||'〇〇')+'」までの長さです。丈・袖の長さ・シルエット・デザイン・色・柄・素材感・ロゴ・傷や汚れは、元の写真のまま変えないでください。';
       document.getElementById('prompt4').textContent=[
         'この写真の商品を、メルカリに出品します。タイトルと説明文を作ってください。',
         'サイズ：'+(val('in-size')||'〇〇'),
