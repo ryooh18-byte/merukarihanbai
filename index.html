@@ -225,6 +225,23 @@
       .order b{flex:0 0 52px;font-size:.78rem}
       .fill-box{padding:16px 14px}
     }
+    .ba{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px auto 0;max-width:560px}
+    .ba figure{margin:0;flex:1}
+    .ba img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 26px rgba(61,55,45,.12)}
+    .ba figcaption{margin-top:6px;font-size:.78rem;color:var(--muted)}
+    .ba-arrow{color:var(--terra);font-size:1rem}
+    .sample{margin:16px auto 0;max-width:240px;text-align:center}
+    .sample img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+    .sample figcaption{margin-top:6px;font-size:.78rem;color:var(--muted)}
+    .howto{margin:10px 0 12px;padding-left:1.4em}
+    .howto li{margin:4px 0}
+    .measure{margin-top:12px}
+    .measure summary{cursor:pointer;font-weight:700;color:var(--sage-deep)}
+    .measure[open] summary{margin-bottom:6px}
+    .measure .table-wrap{margin:8px 0}
+    .measure-note{margin:0;font-size:.85em;color:var(--muted)}
+    .measure td:first-child{white-space:nowrap}
+    .measure th,.measure td{min-width:0!important;padding:10px 11px}
   </style>
 </head>
 <body>
@@ -239,7 +256,11 @@
       </div>
       <div class="hero-title">
         <h1>くみ式<br>メルカリの売れ残りを<br>ChatGPTで<br><em>売れる形に</em></h1>
-        <!-- 画像を入れる場所：元の写真 ▶ ChatGPTで作った雑誌の表紙風の画像（くみさんの実物で作る） -->
+        <div class="ba">
+          <figure><img src="./assets/before-down.webp" alt="部屋の床で撮ったダウンジャケットの写真" width="540" height="720"><figcaption>元の写真</figcaption></figure>
+          <span class="ba-arrow" aria-hidden="true">▶</span>
+          <figure><img src="./assets/after-cover.webp" alt="ChatGPTで作った雑誌の表紙風の画像" width="720" height="720"><figcaption>ChatGPTで作った表紙</figcaption></figure>
+        </div>
         <p class="hero-lead">全体の撮り直しはいりません。<br>今ある写真1枚と、コピーして使える指示文で、作り直せます。</p>
       </div>
     </div>
@@ -312,54 +333,59 @@ AIで副収入を得るための方法を、
         <article class="step" data-step="01">
           <span class="step-label">STEP 1</span>
           <h3>ChatGPTで、<br>商品の画像を3枚作る</h3>
-          <p>ChatGPTを開いて、指示文を送るたびに、元の商品写真を1枚つけます。<br>元の写真は、服の全体が写っているものを使ってください。<br>作るのは3枚です。<br>できた画像は、スマホに保存しておきます。</p>
+          <p>ChatGPTを開いて、指示文を送るたびに、元の商品写真を1枚つけます。<br>元の写真は、服の全体が写っているものを使ってください。<br>できた画像は、スマホに保存しておきます。</p>
 
-          <h4>① 雑誌の表紙風の画像（1枚目にする）</h4>
-          <p>検索結果にずらっと並んだとき、雑誌の表紙のような1枚は目に止まります。</p>
+          <h4>① マネキンに着せた画像（2枚目にする）</h4>
+          <p>人が着た写真より、服の形がすっきり伝わります。<br>AIは丈を変えることがあるので、丈がどこまでかを書いておきます。</p>
           <div class="fill-box">
-            <p class="fill-head">2つ入れると、下の指示文に自動で入ります。</p>
-            <label>ブランド名<input id="in-brand1" type="text" placeholder="例：ザラ" autocomplete="off"><small>わからないときは空欄でOKです。</small></label>
-            <label>雑誌名<input id="in-mag" type="text" placeholder="例：MY CLOSET" autocomplete="off"><small>自分で考えた名前にします。英語っぽい名前がおすすめです。実在する雑誌の名前やロゴは使わないでください。</small></label>
+            <label>丈<input id="in-length" type="text" placeholder="例：ひざ下" autocomplete="off"><small>腰・ひざ上・ひざ下・くるぶし、などで入れます。</small></label>
           </div>
           <div class="prompt">
-            <div class="prompt-head"><b>雑誌の表紙風の指示文</b><button class="copy" type="button" data-copy="prompt1">コピーする</button></div>
+            <div class="prompt-head"><b>指示文①　マネキン</b><button class="copy" type="button" data-copy="prompt1">コピーする</button></div>
             <details class="prompt-details" open>
               <summary>指示文の内容を見る</summary>
-              <pre id="prompt1">この商品写真を使って、雑誌「〇〇」の表紙のような画像にしてください。商品の色・柄・形・ロゴ・傷や汚れは変えず、正方形で仕上げてください。</pre>
+              <pre id="prompt1">この服を白背景でマネキンに着せてください。丈は「〇〇」まで。色・柄・素材感・ロゴ・傷・デザインは変えないで。タグは描かないで。</pre>
             </details>
           </div>
+          <figure class="sample"><img src="./assets/step1-mannequin.webp" alt="マネキンに着せたダウンジャケットの例" width="576" height="720"><figcaption>できあがりの例</figcaption></figure>
 
-          <h4>② マネキンに着せた画像（2枚目にする）</h4>
-          <p>人が着た写真より、服の形がすっきり伝わります。<br>ただ、AIは丈を短くしたり、形を変えたりすることがあります。<br>そこで、丈がどこまでかを、指示文に書いておきます。</p>
-          <div class="fill-box">
-            <label>丈<input id="in-length" type="text" placeholder="例：ひざ下" autocomplete="off"><small>腰まで・ひざ上・ひざ下・くるぶし、などで入れます。</small></label>
-          </div>
-          <div class="prompt">
-            <div class="prompt-head"><b>マネキンの指示文</b><button class="copy" type="button" data-copy="prompt2">コピーする</button></div>
-            <details class="prompt-details" open>
-              <summary>指示文の内容を見る</summary>
-              <pre id="prompt2">この服を、無地の白背景でマネキンに着せてください。丈は「〇〇」までの長さです。丈・袖の長さ・シルエット・デザイン・色・柄・素材感・ロゴ・傷や汚れは、元の写真のまま変えないでください。</pre>
-            </details>
-          </div>
-
-          <h4>③ 背景を白にした画像（3枚目にする）</h4>
+          <h4>② 背景を白にした画像（3枚目にする）</h4>
           <p>生活感のある背景が消えるだけで、お店の商品写真のように見えます。</p>
           <div class="prompt">
-            <div class="prompt-head"><b>白背景の指示文</b><button class="copy" type="button" data-copy="prompt3">コピーする</button></div>
+            <div class="prompt-head"><b>指示文②　白背景</b><button class="copy" type="button" data-copy="prompt2">コピーする</button></div>
             <details class="prompt-details" open>
               <summary>指示文の内容を見る</summary>
-              <pre id="prompt3">商品の色・形・質感・ロゴ・傷や汚れは変えず、背景だけを無地の白にしてください。</pre>
+              <pre id="prompt2">商品の色・形・質感・ロゴ・傷は変えず、商品以外を消して白背景にしてください。</pre>
             </details>
           </div>
+          <figure class="sample"><img src="./assets/step1-white.webp" alt="背景を白にしたダウンジャケットの例" width="540" height="720"><figcaption>できあがりの例</figcaption></figure>
+
+          <h4>③ 雑誌の表紙の画像（1枚目にする）</h4>
+          <p>一覧にずらっと並んだとき、雑誌の表紙のような1枚は目に止まります。</p>
+          <div class="fill-box">
+            <p class="fill-head">入れると、下の指示文に自動で入ります。</p>
+            <label>ブランド名<input id="in-brand3" type="text" placeholder="例：TOMMY HILFIGER" autocomplete="off"><small>タグに書いてあるとおりに入れます。わからなければ空欄でOKです。</small></label>
+            <label>サイズ<input id="in-size3" type="text" placeholder="例：L" autocomplete="off"><small>タグを見て入れます。</small></label>
+          </div>
+          <div class="prompt">
+            <div class="prompt-head"><b>指示文③　雑誌の表紙</b><button class="copy" type="button" data-copy="prompt3">コピーする</button></div>
+            <details class="prompt-details" open>
+              <summary>指示文の内容を見る</summary>
+              <pre id="prompt3">この服をモデルに着せ、ファッション誌「ATELIER K」の表紙にしてください。服の色・形・傷は変えないで。背景はおしゃれな街並み。雑誌名は上に、モデルと重ねないで。左右に英語の小見出しを2〜3個、小さく上品に。その1つは白い細字で「〇〇／〇〇size」。帯や枠はなし。正方形で。</pre>
+            </details>
+          </div>
+          <p style="margin-top:12px">英語の部分も、そのままコピーでOKです。</p>
+          <div class="small-box"><p>※ ちがうブランド名を書くと、メルカリで禁止されている「虚偽の情報」にあたります。タグを見て、正しいブランド名を入れるほうが確実です。（※2026年11月現在・<a href="https://help.jp.mercari.com/guide/articles/871/" target="_blank" rel="noopener noreferrer">メルカリ公式</a>）</p></div>
 
           <div class="rule">
             <div>
               <b>できた画像を、元の写真とくらべる</b>
-              <p>できた画像と元の写真をならべて、次の3つを見てください。</p>
+              <p>できた画像と元の写真をならべて、次の4つを見てください。</p>
               <ul>
                 <li>裾の位置（丈が短くなっていないか）</li>
                 <li>柄と色</li>
                 <li>傷や汚れ（消えていないか）</li>
+                <li>雑誌の文字（ブランド名がタグと同じか・サイズが合っているか）</li>
               </ul>
               <p>ちがっていたら、同じ画面で「丈が元の写真より短いので、元の写真どおりに直してください」と、ちがうところだけ伝えます。</p>
               <p>本当の長さは、STEP 3で説明文に書く実寸で伝えます。</p>
@@ -367,6 +393,7 @@ AIで副収入を得るための方法を、
           </div>
           <div class="small-box">
             <p>※ 実物が写っていない、AIだけの画像での出品は、禁止されています。傷や汚れをAIで消すのも禁止です。（※2026年11月現在・<a href="https://jp-news.mercari.com/info/51933" target="_blank" rel="noopener noreferrer">メルカリ公式</a>）</p>
+            <p style="margin-top:6px">※ ブランド物で、元の写真がきれいに撮れているときは、AIを使わずに、スマホの写真編集で文字だけ入れるほうが確実です。AIで描き直すと、「本物かな？」と疑われやすくなります。</p>
           </div>
         </article>
 
@@ -383,13 +410,14 @@ AIで副収入を得るための方法を、
           <div class="small-box"><p>※ 傷や汚れを先に見せておくと、「聞いていません」というトラブルを防げます。</p></div>
           <h4>並べる順番</h4>
           <div class="order" role="list">
-            <div role="listitem"><b>1枚目</b>雑誌の表紙風</div>
+            <div role="listitem"><b>1枚目</b>雑誌の表紙</div>
             <div role="listitem"><b>2枚目</b>マネキン</div>
             <div role="listitem"><b>3枚目</b>白背景</div>
             <div class="real" role="listitem"><b>4枚目</b>実物の全体</div>
             <div class="real" role="listitem"><b>5枚目〜</b>ロゴ・タグ・傷のアップ</div>
           </div>
           <p class="order-caption">色の箱はChatGPTの画像、点線の箱はスマホで撮った実物の写真です。</p>
+          <p>出品画面で、この順に写真を選びます。</p>
         </article>
 
         <article class="step" data-step="03">
@@ -404,11 +432,7 @@ AIで副収入を得るための方法を、
             <li>【M】ザラ 花柄 ロングワンピース ネイビー 美品</li>
             <li>【24.5cm】ナイキ エアマックス90 スニーカー 白</li>
           </ul>
-          <ul class="check-list">
-            <li>ブランド名は、タイトルにはカタカナで。英語のつづりは、説明文に入れます</li>
-            <li>「ワンピース」だけでなく、「ロングワンピース 花柄」のように、形や柄も入れます</li>
-            <li>「美品」「未使用」は、本当にそうなら入れます</li>
-          </ul>
+          <p>「美品」「未使用」は、本当にそうなら入れます。</p>
           <div class="small-box">
             <p>※ タイトルは40文字までです。商品と関係のないブランド名や、実際より良く見せる言葉は禁止されています。（※2026年11月現在・<a href="https://jp-news.mercari.com/contents/9449" target="_blank" rel="noopener noreferrer">メルカリ公式</a>）</p>
           </div>
@@ -417,10 +441,29 @@ AIで副収入を得るための方法を、
           <div class="fill-box">
             <p class="fill-head">入れると、下の指示文に自動で入ります。</p>
             <label>サイズ<input id="in-size" type="text" placeholder="例：M、24.5cm" autocomplete="off"><small>タグを見て入れます。</small></label>
-            <label>ブランド名<input id="in-brand2" type="text" placeholder="例：ザラ" autocomplete="off"><small>わからないときは空欄でOKです。</small></label>
-            <label>実寸<input id="in-real" type="text" placeholder="例：着丈110cm、身幅50cm" autocomplete="off"><small>メジャーで測ります。靴は空欄でOKです。</small></label>
+            <label>ブランド名<input id="in-brand2" type="text" placeholder="例：ユニクロ" autocomplete="off"><small>タグを見て入れます。わからなければ空欄でOKです。</small></label>
+            <label>実寸<input id="in-real" type="text" placeholder="例：着丈110cm、身幅50cm" autocomplete="off"><small>メジャーで測って入れます。測る場所は、下の一覧です。靴は空欄でOKです。</small></label>
             <label>傷や汚れ<input id="in-damage" type="text" placeholder="例：右袖に小さなシミ" autocomplete="off"><small>なければ「なし」と入れます。</small></label>
           </div>
+          <p style="margin-top:18px">実際に測って書くと、買う人が安心して、売れやすくなります。</p>
+          <details class="measure">
+            <summary>服の種類ごとの、測る場所を見る</summary>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>種類</th><th>測る場所</th></tr></thead>
+                <tbody>
+                  <tr><td>トップス</td><td>着丈・身幅・肩幅・袖丈</td></tr>
+                  <tr><td>パンツ</td><td>ウエスト・股上・股下・わたり幅（太ももの幅）</td></tr>
+                  <tr><td>スカート</td><td>ウエスト・ヒップ・スカート丈</td></tr>
+                  <tr><td>アウター</td><td>着丈・身幅・肩幅・袖丈</td></tr>
+                  <tr><td>ワンピース</td><td>着丈・身幅・肩幅・袖丈（ウエストがしぼってあれば、ウエストも）</td></tr>
+                  <tr><td>ハット</td><td>頭まわり（内側）・つばの長さ・高さ</td></tr>
+                  <tr><td>バッグ</td><td>縦・横・マチ（奥行き）・持ち手の長さ</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="measure-note">平らな床やテーブルに置いて、cmで測ります。ウエストやヒップは、端から端を測って2倍にします。</p>
+          </details>
           <p style="margin-top:18px">元の写真をつけて、この指示文を送ります。</p>
           <div class="prompt">
             <div class="prompt-head"><b>タイトルと説明文の指示文</b><button class="copy" type="button" data-copy="prompt4">コピーする</button></div>
@@ -428,15 +471,15 @@ AIで副収入を得るための方法を、
               <summary>指示文の内容を見る</summary>
               <pre id="prompt4">この写真の商品を、メルカリに出品します。タイトルと説明文を作ってください。
 サイズ：〇〇
-ブランド：〇〇
-実寸：〇〇
+ブランド：わからない（タイトルに入れない）
+実寸：なし
 傷や汚れ：〇〇
 
-【タイトル】40文字以内。先頭に【サイズ】。そのあと、ブランド名（カタカナ）、アイテム名、色、形や柄の特徴の順。商品と関係のない言葉は入れない。
-【説明文】ブランド（英語のつづりも）・サイズ・実寸・色・素材・状態・傷や汚れを、短い箇条書きで。最後に「1〜3枚目はイメージ画像です。実物は4枚目以降の写真と、実寸でご確認ください。」と入れる。</pre>
+【タイトル】40文字以内。先頭に【サイズ】。そのあと、ブランド名（カタカナ）、アイテム名、色、形や柄の特徴の順。検索されやすい言いかえも入れる。商品と関係のない言葉は入れない。
+【説明文】ブランド（英語のつづりも）・サイズ・実寸・色・素材・状態・傷や汚れを、短い箇条書きで。最後に「1〜3枚目はイメージ画像です。実物は4枚目以降の写真でご確認ください。」と入れる。</pre>
             </details>
           </div>
-          <p>できたタイトルと説明文を、メルカリの出品画面にコピーして貼ります。<br>素材やサイズがタグとちがっていたら、タグのとおりに直してください。</p>
+          <p>できたタイトルと説明文を、メルカリの出品画面にコピーして貼ります。<br>ブランド・素材・サイズがタグとちがっていたら、タグのとおりに直してください。</p>
         </article>
 
         <article class="step" data-step="04">
@@ -456,6 +499,13 @@ AIで副収入を得るための方法を、
               </tbody>
             </table>
           </div>
+          <h4>値段の変え方</h4>
+          <ol class="howto">
+            <li>画面下の「出品」→「出品中」を開く</li>
+            <li>「まとめて編集」→「まとめて価格変更」を選ぶ</li>
+            <li>「値下げ」にチェックして、下げる金額を入れる</li>
+          </ol>
+          <p>戻すときは、同じ画面で「値上げ」にチェックして、下げた金額と同じだけ上げます。</p>
           <div class="small-box"><p>※ 下げている間に買われると、その値段で売れます。下げるのは、「この値段なら売ってもいい」と思えるところまでにしてください。</p></div>
           <p style="margin-top:22px">上の方に出ても、1枚目が部屋で撮った写真のままだと、素通りされます。<br>STEP 1の画像と、毎日の値下げは、セットでやってください。</p>
         </article>
@@ -475,7 +525,7 @@ AIで副収入を得るための方法を、
     <!-- ===== 6. 締めの一言【1行目は固定・2行目が変わる部分】 ===== -->
     <section class="closing-message">
       <div class="wrap">
-        <div class="completion"><b>ここまで読んでくださり、ありがとうございます。</b><span>売れ残っている服を1着選んで、まずは雑誌の表紙風の1枚から作ってみてください✨</span></div>
+        <div class="completion"><b>ここまで読んでくださり、ありがとうございます。</b><span>売れ残っている服を1着選んで、まずは1枚目の画像から作ってみてください✨</span></div>
       </div>
     </section>
 
@@ -581,18 +631,18 @@ AIを使った副業で、たった4か月で、介護の仕事の手取りと�
     /* 入力欄 → 指示文に自動で入れる */
     function val(id){var el=document.getElementById(id);return el?el.value.trim():''}
     function fillPrompts(){
-      var brand1=val('in-brand1'),mag=val('in-mag')||'〇〇';
-      document.getElementById('prompt1').textContent='この商品写真を使って、雑誌「'+mag+'」の表紙のような画像にしてください。'+(brand1?'ブランド名「'+brand1+'」を小さく入れてください。':'')+'商品の色・柄・形・ロゴ・傷や汚れは変えず、正方形で仕上げてください。';
-      document.getElementById('prompt2').textContent='この服を、無地の白背景でマネキンに着せてください。丈は「'+(val('in-length')||'〇〇')+'」までの長さです。丈・袖の長さ・シルエット・デザイン・色・柄・素材感・ロゴ・傷や汚れは、元の写真のまま変えないでください。';
+      var brand1='',size1=val('in-size3');
+      document.getElementById('prompt3').textContent='この服をモデルに着せ、ファッション誌「ATELIER K」の表紙にしてください。服の色・形・傷は変えないで。背景はおしゃれな街並み。雑誌名は上に、モデルと重ねないで。左右に英語の小見出しを2〜3個、小さく上品に。その1つは白い細字で「'+(val('in-brand3')?val('in-brand3')+'／':'')+(size1||'〇〇')+'size」。帯や枠はなし。正方形で。';
+      document.getElementById('prompt1').textContent='この服を白背景でマネキンに着せてください。丈は「'+(val('in-length')||'〇〇')+'」まで。色・柄・素材感・ロゴ・傷・デザインは変えないで。タグは描かないで。';
       document.getElementById('prompt4').textContent=[
         'この写真の商品を、メルカリに出品します。タイトルと説明文を作ってください。',
-        'サイズ：'+(val('in-size')||'〇〇'),
-        'ブランド：'+(val('in-brand2')||'わからない（タイトルに入れない）'),
+        'サイズ：'+(val('in-size')||size1||'〇〇'),
+        'ブランド：'+(val('in-brand2')||brand1||'わからない（タイトルに入れない）'),
         '実寸：'+(val('in-real')||'なし'),
         '傷や汚れ：'+(val('in-damage')||'〇〇'),
         '',
-        '【タイトル】40文字以内。先頭に【サイズ】。そのあと、ブランド名（カタカナ）、アイテム名、色、形や柄の特徴の順。商品と関係のない言葉は入れない。',
-        '【説明文】ブランド（英語のつづりも）・サイズ・実寸・色・素材・状態・傷や汚れを、短い箇条書きで。最後に「1〜3枚目はイメージ画像です。実物は4枚目以降の写真と、実寸でご確認ください。」と入れる。'
+        '【タイトル】40文字以内。先頭に【サイズ】。そのあと、ブランド名（カタカナ）、アイテム名、色、形や柄の特徴の順。検索されやすい言いかえも入れる。商品と関係のない言葉は入れない。',
+        '【説明文】ブランド（英語のつづりも）・サイズ・実寸・色・素材・状態・傷や汚れを、短い箇条書きで。最後に「1〜3枚目はイメージ画像です。実物は4枚目以降の写真'+(val('in-real')?'と、実寸':'')+'でご確認ください。」と入れる。'
       ].join('\n');
     }
     document.querySelectorAll('.fill-box input').forEach(function(el){el.addEventListener('input',fillPrompts)});
